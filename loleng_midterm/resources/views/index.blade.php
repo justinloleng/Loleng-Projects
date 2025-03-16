@@ -19,8 +19,14 @@
 @endif
     <div class="container mt-4">
         <h1 class="mb-4">All Threads</h1>
+        <form action="{{ route('threads.index') }}" method="GET" class="mb-3">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Search threads and authors here..." value="{{ request('search') }}">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
         <a href="{{ route('threads.create') }}" class="btn btn-primary mb-3">Create New Thread</a>
-    
+        @if(count($threads) > 0)
         @foreach ($threads as $thread)
             <div class="card mb-3">
                 <div class="card-body">
@@ -46,8 +52,14 @@
                 @endauth
                 </div>
             </div>
+            
         @endforeach
+        @else
+        <p class="text-center text-muted">No threads found.</p>
+     
+        @endif
     </div>
+    
     @endsection
     
     

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Forum</title>
+    <title>Document</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -45,10 +45,11 @@
 
  
     <div class="sidebar">
-        <h3 class="text-center text-light">Forum/Discussion Board</h3>
+        <h3 class="text-center text-light">THE BROS FORUM</h3>
+        <br>
         <a href="{{ route('threads.index') }}">📌 All Threads</a>
         <a href="{{ route('threads.create') }}">➕ Create Thread</a>
-        <a href="#">⚙️ Settings</a>
+        <a href="{{route('user.edit')}}">⚙️ User Settings</a>
         <a href="{{ route('logout') }}">🚪 Logout</a>
     </div>
     <div class="main-content">

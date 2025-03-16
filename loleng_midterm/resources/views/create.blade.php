@@ -23,7 +23,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label fw-bold">Content</label>
-                        <textarea name="content" class="form-control rounded-3 border-0 shadow-sm" rows="5" placeholder="Write your thoughts here..." required></textarea>
+                        <textarea name="content" class="form-control rounded-3 border-0 shadow-sm" rows="5" placeholder="Write your content here" required></textarea>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary w-100 py-2 rounded-pill">Create Thread</button>

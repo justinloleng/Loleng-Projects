@@ -9,14 +9,32 @@ class ForumController extends Controller
 {
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $threads = DB::select("
-        SELECT threads.*, users.name AS author 
-        FROM threads 
-        JOIN users ON threads.user_id = users.id
-        ORDER BY threads.created_at DESC
-    ");
+        $query = $request->input('search');
+
+        if ($query) {
+
+            $threads = DB::select(
+                "
+                SELECT threads.*, users.name AS author 
+                FROM threads 
+                JOIN users ON threads.user_id = users.id
+                WHERE threads.title LIKE ? OR users.name LIKE ?
+                ORDER BY threads.created_at DESC
+            ",
+                ["%$query%", "%$query%"]
+            );
+        } else {
+
+            $threads = DB::select("
+                SELECT threads.*, users.name AS author 
+                FROM threads 
+                JOIN users ON threads.user_id = users.id
+                ORDER BY threads.created_at DESC
+            ");
+        }
+
         return view('index', compact('threads'));
     }
 
@@ -46,13 +64,11 @@ class ForumController extends Controller
 
     public function show($id)
     {
-
         $thread = DB::selectOne("
             SELECT threads.*, users.name AS author 
             FROM threads 
             JOIN users ON threads.user_id = users.id 
             WHERE threads.id = ?", [$id]);
-
 
         $replies = DB::select("
             SELECT replies.*, users.name AS author 
@@ -63,6 +79,7 @@ class ForumController extends Controller
 
         return view('show', compact('thread', 'replies'));
     }
+
 
     public function edit($id)
     {

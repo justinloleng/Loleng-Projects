@@ -15,11 +15,16 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">
+                @if($thread)
                 <h2 class="card-title">{{ $thread->title }}</h2>
                 <p class="card-text">{{ $thread->content }}</p>
                 <small class="text-muted">
                     Posted by <strong>{{ $thread->author }}</strong> on {{ $thread->created_at }}
                 </small>
+            @else
+                <div class="alert alert-danger">Thread not found.</div>
+            @endif
+            
             </div>
         </div>
     
