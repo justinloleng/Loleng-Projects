@@ -106,4 +106,9 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route('login')->with('success', 'Account deleted successfully.');
     }
+    public function username()
+    {
+        $user = auth()->user();
+        return view('', compact('user'));
+    }
 }

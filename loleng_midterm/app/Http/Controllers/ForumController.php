@@ -11,29 +11,17 @@ class ForumController extends Controller
 
     public function index(Request $request)
     {
-        $query = $request->input('search');
+        $query = DB::table('threads')
+            ->join('users', 'threads.user_id', '=', 'users.id')
+            ->select('threads.*', 'users.name as author')
+            ->orderBy('threads.created_at', 'DESC');
 
-        if ($query) {
-
-            $threads = DB::select(
-                "
-                SELECT threads.*, users.name AS author 
-                FROM threads 
-                JOIN users ON threads.user_id = users.id
-                WHERE threads.title LIKE ? OR users.name LIKE ?
-                ORDER BY threads.created_at DESC
-            ",
-                ["%$query%", "%$query%"]
-            );
-        } else {
-
-            $threads = DB::select("
-                SELECT threads.*, users.name AS author 
-                FROM threads 
-                JOIN users ON threads.user_id = users.id
-                ORDER BY threads.created_at DESC
-            ");
+        if ($search = $request->input('search')) {
+            $query->where('threads.title', 'LIKE', "%$search%")
+                ->orWhere('users.name', 'LIKE', "%$search%");
         }
+
+        $threads = $query->paginate(3);
 
         return view('index', compact('threads'));
     }

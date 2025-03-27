@@ -38,3 +38,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
     Route::post('/user/delete', [UserController::class, 'destroy'])->name('user.destroy');
 });
+
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+Route::get('/sidebar', [UserController::class, 'username']);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2025 at 03:05 AM
+-- Generation Time: Mar 26, 2025 at 11:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -80,9 +80,13 @@ CREATE TABLE `replies` (
 --
 
 INSERT INTO `replies` (`id`, `content`, `user_id`, `thread_id`, `created_at`, `updated_at`) VALUES
-(5, 'bootstrap 5 very good for designing your project very simple and elegant', 3, 3, '2025-03-14 10:17:19', '2025-03-14 13:52:12'),
-(6, 'rate my design on this forum board bro', 2, 4, '2025-03-14 13:39:28', '2025-03-14 13:39:28'),
-(7, 'I guess simple is best but I\'ll rate it 6 hahaha', 3, 4, '2025-03-14 13:43:06', '2025-03-14 13:56:04');
+(7, 'I guess simple is best but I\'ll rate it 6 hahaha', 3, 4, '2025-03-14 13:43:06', '2025-03-14 13:56:04'),
+(10, 'Hello there Mr. Loleng', 6, 12, '2025-03-15 13:47:51', '2025-03-15 13:47:51'),
+(11, 'oh hello mr hawking how do u today? can u help me? running problems', 5, 12, '2025-03-15 13:48:43', '2025-03-15 13:48:43'),
+(12, ':> hehehe', 6, 12, '2025-03-15 13:49:07', '2025-03-15 13:49:07'),
+(13, 'test1? anonymous guy really?', 6, 4, '2025-03-15 13:49:47', '2025-03-15 13:49:47'),
+(15, 'I\'m not even talking bruh?!', 6, 18, '2025-03-19 14:50:27', '2025-03-19 14:50:27'),
+(16, 'dude just hush man', 5, 19, '2025-03-19 14:55:16', '2025-03-19 14:55:16');
 
 -- --------------------------------------------------------
 
@@ -104,8 +108,10 @@ CREATE TABLE `threads` (
 --
 
 INSERT INTO `threads` (`id`, `title`, `content`, `user_id`, `created_at`, `updated_at`) VALUES
-(3, 'First Websys 2 Midterm Requirement', 'Any advice tips to improve my project?', 2, '2025-03-14 10:00:02', '2025-03-14 10:00:02'),
-(4, 'Hahaha so cool', ';)', 3, '2025-03-14 10:05:10', '2025-03-14 11:01:25');
+(4, 'Hahaha so cool', ';)', 3, '2025-03-14 10:05:10', '2025-03-14 11:01:25'),
+(12, 'First ever laravel project (Midterm Requirement)', 'can you guys give some tips to how to improve my laravel skills', 5, '2025-03-15 13:46:32', '2025-03-19 10:59:00'),
+(18, 'I\'m trying to review guyss', 'be quiet in the forumss', 5, '2025-03-19 14:49:28', '2025-03-26 10:22:41'),
+(19, 'Welcome to the bros forum', 'I am your man here or you could say man leader muwahaha', 6, '2025-03-19 14:51:21', '2025-03-19 14:51:21');
 
 -- --------------------------------------------------------
 
@@ -127,8 +133,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(2, 'Justin Loleng', 'jtrooper10@gmail.com', '$2y$12$fna6IeFzB4JXU.sWNV0jues9ZcN1QbWEQjkAzVL33CAzWtG5jZjZ.', '2025-03-13 11:05:03', '2025-03-13 11:05:03'),
-(3, 'test1', 'test1@gmail.com', '$2y$12$s8axoBlHIH49ViJAIk8nBu3MCe/VwV.BHRsq93Wy.PnMfEBYydelq', '2025-03-14 02:48:29', '2025-03-14 02:48:29');
+(3, 'test1', 'test1@gmail.com', '$2y$12$s8axoBlHIH49ViJAIk8nBu3MCe/VwV.BHRsq93Wy.PnMfEBYydelq', '2025-03-14 02:48:29', '2025-03-14 02:48:29'),
+(5, 'Justin Gerald Loleng', 'jtrooper10@gmail.com', '$2y$12$4WFsXLdy28Pt5xtR6lN6xueksUUGIDJvGtHZ9X3EHxTYqN0JDjHIK', '2025-03-15 13:41:32', '2025-03-26 10:23:12'),
+(6, 'stephen hawking', 'StephenHawking@gmail.com', '$2y$12$nwc9ra0T3bQBswViIMF4tu.2pZ9xWj8smr0jPr7lKJyAQmzEdBps6', '2025-03-15 13:47:23', '2025-03-15 13:47:23');
 
 --
 -- Indexes for dumped tables
@@ -190,19 +197,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `replies`
 --
 ALTER TABLE `replies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `threads`
 --
 ALTER TABLE `threads`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
